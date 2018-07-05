@@ -1,0 +1,32 @@
+<h2>Listing Operations</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Detail</th>
+      <th>Monthly cost</th>
+      <th>Date</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for operation <- @operations do %>
+    <tr>
+      <td><%= operation.item %></td>
+      <td><%= operation.detail %></td>
+      <td><%= operation.monthly_cost %></td>
+      <td><%= operation.date %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: operation_path(@conn, :show, operation), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: operation_path(@conn, :edit, operation), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: operation_path(@conn, :delete, operation), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Operation", to: operation_path(@conn, :new) %></span>

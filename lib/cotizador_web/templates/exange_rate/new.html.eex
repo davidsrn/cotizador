@@ -1,0 +1,5 @@
+<h2>New Exange rate</h2>
+
+<%= render "form.html", Map.put(assigns, :action, exange_rate_path(@conn, :create)) %>
+
+<span><%= link "Back", to: exange_rate_path(@conn, :index) %></span>

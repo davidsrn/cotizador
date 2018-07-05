@@ -1,0 +1,5 @@
+<h2>Edit Growth and culture</h2>
+
+<%= render "form.html", Map.put(assigns, :action, growth_and_culture_path(@conn, :update, @growth_and_culture)) %>
+
+<span><%= link "Back", to: growth_and_culture_path(@conn, :index) %></span>

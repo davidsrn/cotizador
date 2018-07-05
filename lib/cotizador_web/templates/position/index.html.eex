@@ -1,0 +1,26 @@
+<h2>Listing Positions</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for position <- @positions do %>
+    <tr>
+      <td><%= position.name %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: position_path(@conn, :show, position), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: position_path(@conn, :edit, position), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: position_path(@conn, :delete, position), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Position", to: position_path(@conn, :new) %></span>

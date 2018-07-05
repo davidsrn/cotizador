@@ -1,0 +1,32 @@
+<h2>Listing Growth and culture item</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Detail</th>
+      <th>Yearly cost</th>
+      <th>Date</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for growth_and_culture <- @growth_and_culture_item do %>
+    <tr>
+      <td><%= growth_and_culture.name %></td>
+      <td><%= growth_and_culture.detail %></td>
+      <td><%= growth_and_culture.yearly_cost %></td>
+      <td><%= growth_and_culture.date %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: growth_and_culture_path(@conn, :show, growth_and_culture), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: growth_and_culture_path(@conn, :edit, growth_and_culture), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: growth_and_culture_path(@conn, :delete, growth_and_culture), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Growth and culture", to: growth_and_culture_path(@conn, :new) %></span>

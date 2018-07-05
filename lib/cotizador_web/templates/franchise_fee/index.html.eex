@@ -1,0 +1,28 @@
+<h2>Listing Franchise fees</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for franchise_fee <- @franchise_fees do %>
+    <tr>
+      <td><%= franchise_fee.name %></td>
+      <td><%= franchise_fee.value %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: franchise_fee_path(@conn, :show, franchise_fee), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: franchise_fee_path(@conn, :edit, franchise_fee), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: franchise_fee_path(@conn, :delete, franchise_fee), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Franchise fee", to: franchise_fee_path(@conn, :new) %></span>

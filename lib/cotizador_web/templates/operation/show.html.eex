@@ -1,0 +1,28 @@
+<h2>Show Operation</h2>
+
+<ul>
+
+  <li>
+    <strong>Item:</strong>
+    <%= @operation.item %>
+  </li>
+
+  <li>
+    <strong>Detail:</strong>
+    <%= @operation.detail %>
+  </li>
+
+  <li>
+    <strong>Monthly cost:</strong>
+    <%= @operation.monthly_cost %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @operation.date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: operation_path(@conn, :edit, @operation) %></span>
+<span><%= link "Back", to: operation_path(@conn, :index) %></span>

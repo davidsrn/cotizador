@@ -1,0 +1,18 @@
+<h2>Show Franchise fee</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @franchise_fee.name %>
+  </li>
+
+  <li>
+    <strong>Value:</strong>
+    <%= @franchise_fee.value %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: franchise_fee_path(@conn, :edit, @franchise_fee) %></span>
+<span><%= link "Back", to: franchise_fee_path(@conn, :index) %></span>

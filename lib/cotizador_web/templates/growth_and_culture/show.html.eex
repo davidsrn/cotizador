@@ -1,0 +1,28 @@
+<h2>Show Growth and culture</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @growth_and_culture.name %>
+  </li>
+
+  <li>
+    <strong>Detail:</strong>
+    <%= @growth_and_culture.detail %>
+  </li>
+
+  <li>
+    <strong>Yearly cost:</strong>
+    <%= @growth_and_culture.yearly_cost %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @growth_and_culture.date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: growth_and_culture_path(@conn, :edit, @growth_and_culture) %></span>
+<span><%= link "Back", to: growth_and_culture_path(@conn, :index) %></span>

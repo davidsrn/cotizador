@@ -1,0 +1,5 @@
+<h2>New Franchise fee</h2>
+
+<%= render "form.html", Map.put(assigns, :action, franchise_fee_path(@conn, :create)) %>
+
+<span><%= link "Back", to: franchise_fee_path(@conn, :index) %></span>

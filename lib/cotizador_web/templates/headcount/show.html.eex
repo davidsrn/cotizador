@@ -1,0 +1,18 @@
+<h2>Show Headcount</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @headcount.name %>
+  </li>
+
+  <li>
+    <strong>Salary:</strong>
+    <%= @headcount.salary %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: headcount_path(@conn, :edit, @headcount) %></span>
+<span><%= link "Back", to: headcount_path(@conn, :index) %></span>

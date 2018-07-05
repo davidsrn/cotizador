@@ -1,0 +1,5 @@
+<h2>Edit Headcount</h2>
+
+<%= render "form.html", Map.put(assigns, :action, headcount_path(@conn, :update, @headcount)) %>
+
+<span><%= link "Back", to: headcount_path(@conn, :index) %></span>

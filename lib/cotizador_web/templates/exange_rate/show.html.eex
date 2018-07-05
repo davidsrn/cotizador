@@ -1,0 +1,18 @@
+<h2>Show Exange rate</h2>
+
+<ul>
+
+  <li>
+    <strong>Amout:</strong>
+    <%= @exange_rate.amout %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @exange_rate.date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: exange_rate_path(@conn, :edit, @exange_rate) %></span>
+<span><%= link "Back", to: exange_rate_path(@conn, :index) %></span>
