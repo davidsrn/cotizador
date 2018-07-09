@@ -6,6 +6,7 @@ defmodule CotizadorWeb.HeadcountController do
   alias Cotizador.Repo
   import Ecto.Query, warn: false
   alias Cotizador.Locations.Location
+  alias Cotizador.HumanResources.Position
 
   def index(conn, _params) do
     persons = HumanResources.list_persons()
@@ -17,7 +18,10 @@ defmodule CotizadorWeb.HeadcountController do
     query = from loc in Location,
             select: {loc.name, loc.id}
     location_select = Repo.all(query)
-    render(conn, "new.html", changeset: changeset, locations: location_select)
+    query = from pos in Position,
+            select: {pos.name, pos.id}
+    position_select = Repo.all(query)
+    render(conn, "new.html", changeset: changeset, locations: location_select, positions: position_select)
   end
 
   def create(conn, %{"headcount" => headcount_params}) do
