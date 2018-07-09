@@ -6,7 +6,7 @@ defmodule Cotizador.HumanResources.Headcount do
   schema "persons" do
     field :name, :string
     field :salary, :float
-    field :location_id, :id
+    belongs_to :location, Cotizador.Locations.Location
     field :position_id, :id
 
     timestamps()
@@ -15,7 +15,7 @@ defmodule Cotizador.HumanResources.Headcount do
   @doc false
   def changeset(headcount, attrs) do
     headcount
-    |> cast(attrs, [:name, :salary])
-    |> validate_required([:name, :salary])
+    |> cast(attrs, [:name, :salary, :location_id])
+    |> validate_required([:name, :salary, :location_id])
   end
 end

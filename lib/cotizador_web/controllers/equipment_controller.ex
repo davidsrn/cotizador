@@ -3,6 +3,9 @@ defmodule CotizadorWeb.EquipmentController do
 
   alias Cotizador.FixedCosts
   alias Cotizador.FixedCosts.Equipment
+  alias Cotizador.Repo
+  import Ecto.Query, warn: false
+  alias Cotizador.Locations.Location
 
   def index(conn, _params) do
     items = FixedCosts.list_items()
@@ -11,7 +14,10 @@ defmodule CotizadorWeb.EquipmentController do
 
   def new(conn, _params) do
     changeset = FixedCosts.change_equipment(%Equipment{})
-    render(conn, "new.html", changeset: changeset)
+    query = from loc in Location,
+            select: {loc.name, loc.id}
+    location_select = Repo.all(query)
+    render(conn, "new.html", changeset: changeset, locations: location_select)
   end
 
   def create(conn, %{"equipment" => equipment_params}) do

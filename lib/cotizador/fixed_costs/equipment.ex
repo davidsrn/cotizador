@@ -8,7 +8,7 @@ defmodule Cotizador.FixedCosts.Equipment do
     field :final_date, :date
     field :initial_date, :date
     field :name, :string
-    field :location_id, :id
+    belongs_to :location, Cotizador.Locations.Location
 
     timestamps()
   end
@@ -16,7 +16,7 @@ defmodule Cotizador.FixedCosts.Equipment do
   @doc false
   def changeset(equipment, attrs) do
     equipment
-    |> cast(attrs, [:name, :cost, :initial_date, :final_date])
-    |> validate_required([:name, :cost, :initial_date, :final_date])
+    |> cast(attrs, [:name, :cost, :initial_date, :final_date, :location_id])
+    |> validate_required([:name, :cost, :initial_date, :final_date, :location_id])
   end
 end

@@ -3,6 +3,9 @@ defmodule CotizadorWeb.FranchiseFeeController do
 
   alias Cotizador.FixedCosts
   alias Cotizador.FixedCosts.FranchiseFee
+  alias Cotizador.Repo
+  import Ecto.Query, warn: false
+  alias Cotizador.Locations.Location
 
   def index(conn, _params) do
     franchise_fees = FixedCosts.list_franchise_fees()
@@ -11,7 +14,10 @@ defmodule CotizadorWeb.FranchiseFeeController do
 
   def new(conn, _params) do
     changeset = FixedCosts.change_franchise_fee(%FranchiseFee{})
-    render(conn, "new.html", changeset: changeset)
+    query = from loc in Location,
+            select: {loc.name, loc.id}
+    location_select = Repo.all(query)
+    render(conn, "new.html", changeset: changeset, locations: location_select)
   end
 
   def create(conn, %{"franchise_fee" => franchise_fee_params}) do

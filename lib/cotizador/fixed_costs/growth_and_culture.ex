@@ -8,7 +8,7 @@ defmodule Cotizador.FixedCosts.GrowthAndCulture do
     field :detail, :string
     field :name, :string
     field :yearly_cost, :string
-    field :location_id, :id
+    belongs_to :location, Cotizador.Locations.Location
 
     timestamps()
   end
@@ -16,7 +16,7 @@ defmodule Cotizador.FixedCosts.GrowthAndCulture do
   @doc false
   def changeset(growth_and_culture, attrs) do
     growth_and_culture
-    |> cast(attrs, [:name, :detail, :yearly_cost, :date])
-    |> validate_required([:name, :detail, :yearly_cost, :date])
+    |> cast(attrs, [:name, :detail, :yearly_cost, :date, :location_id])
+    |> validate_required([:name, :detail, :yearly_cost, :date, :location_id])
   end
 end

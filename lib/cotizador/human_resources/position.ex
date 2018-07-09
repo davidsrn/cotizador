@@ -5,7 +5,7 @@ defmodule Cotizador.HumanResources.Position do
 
   schema "positions" do
     field :name, :string
-    field :location_id, :id
+    belongs_to :location, Cotizador.Locations.Location
 
     timestamps()
   end
@@ -13,7 +13,7 @@ defmodule Cotizador.HumanResources.Position do
   @doc false
   def changeset(position, attrs) do
     position
-    |> cast(attrs, [:name])
-    |> validate_required([:name])
+    |> cast(attrs, [:name, :location_id])
+    |> validate_required([:name, :location_id])
   end
 end

@@ -18,6 +18,15 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :location_id, class: "control-label" %>
+    <%= select f, :location_id, Enum.map(@locations,
+                                                fn
+                                                  {k, v} -> {k, v}
+                                                end) %>
+    <%= error_tag f, :location_id %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
