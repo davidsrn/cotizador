@@ -4,7 +4,7 @@ defmodule Cotizador.FixedCosts.ExangeRate do
 
 
   schema "rates" do
-    field :amout, :string
+    field :amount, :float
     field :date, :date
 
     timestamps()
@@ -13,7 +13,7 @@ defmodule Cotizador.FixedCosts.ExangeRate do
   @doc false
   def changeset(exange_rate, attrs) do
     exange_rate
-    |> cast(attrs, [:amout, :date])
-    |> validate_required([:amout, :date])
+    |> cast(attrs, [:amount, :date])
+    |> validate_required([:amount, :date])
   end
 end

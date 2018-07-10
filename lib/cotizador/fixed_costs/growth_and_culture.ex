@@ -7,7 +7,7 @@ defmodule Cotizador.FixedCosts.GrowthAndCulture do
     field :date, :date
     field :detail, :string
     field :name, :string
-    field :yearly_cost, :string
+    field :yearly_cost, :integer
     belongs_to :location, Cotizador.Locations.Location
 
     timestamps()

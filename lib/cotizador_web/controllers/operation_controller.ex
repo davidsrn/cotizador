@@ -17,7 +17,7 @@ defmodule CotizadorWeb.OperationController do
     query = from loc in Location,
             select: {loc.name, loc.id}
     location_select = Repo.all(query)
-    render(conn, "new.html", changeset: changeset, locations: location_select)
+    render(conn, "new.html", changeset: changeset, locations: location_select, date:  Ecto.Date)
   end
 
   def create(conn, %{"operation" => operation_params}) do

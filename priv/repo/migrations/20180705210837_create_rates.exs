@@ -3,7 +3,7 @@ defmodule Cotizador.Repo.Migrations.CreateRates do
 
   def change do
     create table(:rates) do
-      add :amout, :string
+      add :amount, :float
       add :date, :date
 
       timestamps()

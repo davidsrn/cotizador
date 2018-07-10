@@ -4,7 +4,7 @@ defmodule Cotizador.Repo.Migrations.CreateFranchiseFees do
   def change do
     create table(:franchise_fees) do
       add :name, :string
-      add :value, :string
+      add :value, :float
       add :location_id, references(:locations, on_delete: :nothing)
 
       timestamps()

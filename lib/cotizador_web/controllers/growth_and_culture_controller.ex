@@ -39,7 +39,10 @@ defmodule CotizadorWeb.GrowthAndCultureController do
   def edit(conn, %{"id" => id}) do
     growth_and_culture = FixedCosts.get_growth_and_culture!(id)
     changeset = FixedCosts.change_growth_and_culture(growth_and_culture)
-    render(conn, "edit.html", growth_and_culture: growth_and_culture, changeset: changeset)
+    query = from loc in Location,
+            select: {loc.name, loc.id}
+    location_select = Repo.all(query)
+    render(conn, "edit.html", growth_and_culture: growth_and_culture, changeset: changeset, locations: location_select)
   end
 
   def update(conn, %{"id" => id, "growth_and_culture" => growth_and_culture_params}) do
