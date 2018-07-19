@@ -23,7 +23,7 @@ defmodule CotizadorWeb.Router do
     resources "/persons", HeadcountController
     resources "/rates", ExangeRateController
     resources "/franchise_fees", FranchiseFeeController
-    get "/calc", CalculatorController, :index
+    resources "/projects", ProjectController
 
     get "/", PageController, :index
   end

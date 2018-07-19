@@ -1,0 +1,77 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :name, class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :flat_mxn, class: "control-label" %>
+    <%= number_input f, :flat_mxn, step: "any", class: "form-control" %>
+    <%= error_tag f, :flat_mxn %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :fixed_mxn, class: "control-label" %>
+    <%= number_input f, :fixed_mxn, step: "any", class: "form-control" %>
+    <%= error_tag f, :fixed_mxn %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :variable_mxn, class: "control-label" %>
+    <%= number_input f, :variable_mxn, step: "any", class: "form-control" %>
+    <%= error_tag f, :variable_mxn %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :total_mxn, class: "control-label" %>
+    <%= number_input f, :total_mxn, step: "any", class: "form-control" %>
+    <%= error_tag f, :total_mxn %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :total_margin_mxn, class: "control-label" %>
+    <%= number_input f, :total_margin_mxn, step: "any", class: "form-control" %>
+    <%= error_tag f, :total_margin_mxn %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :flat_mxn, class: "control-label" %>
+    <%= number_input f, :flat_mxn, step: "any", class: "form-control" %>
+    <%= error_tag f, :flat_mxn %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :fixed_usd, class: "control-label" %>
+    <%= number_input f, :fixed_usd, step: "any", class: "form-control" %>
+    <%= error_tag f, :fixed_usd %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :variable_usd, class: "control-label" %>
+    <%= number_input f, :variable_usd, step: "any", class: "form-control" %>
+    <%= error_tag f, :variable_usd %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :total_usd, class: "control-label" %>
+    <%= number_input f, :total_usd, step: "any", class: "form-control" %>
+    <%= error_tag f, :total_usd %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :total_margin_usd, class: "control-label" %>
+    <%= number_input f, :total_margin_usd, step: "any", class: "form-control" %>
+    <%= error_tag f, :total_margin_usd %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

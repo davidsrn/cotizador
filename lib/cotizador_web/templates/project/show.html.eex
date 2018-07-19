@@ -1,0 +1,63 @@
+<h2>Show Project</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @project.name %>
+  </li>
+
+  <li>
+    <strong>Flat mxn:</strong>
+    <%= @project.flat_mxn %>
+  </li>
+
+  <li>
+    <strong>Fixed mxn:</strong>
+    <%= @project.fixed_mxn %>
+  </li>
+
+  <li>
+    <strong>Variable mxn:</strong>
+    <%= @project.variable_mxn %>
+  </li>
+
+  <li>
+    <strong>Total mxn:</strong>
+    <%= @project.total_mxn %>
+  </li>
+
+  <li>
+    <strong>Total margin mxn:</strong>
+    <%= @project.total_margin_mxn %>
+  </li>
+
+  <li>
+    <strong>Flat mxn:</strong>
+    <%= @project.flat_mxn %>
+  </li>
+
+  <li>
+    <strong>Fixed usd:</strong>
+    <%= @project.fixed_usd %>
+  </li>
+
+  <li>
+    <strong>Variable usd:</strong>
+    <%= @project.variable_usd %>
+  </li>
+
+  <li>
+    <strong>Total usd:</strong>
+    <%= @project.total_usd %>
+  </li>
+
+  <li>
+    <strong>Total margin usd:</strong>
+    <%= @project.total_margin_usd %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: project_path(@conn, :edit, @project) %></span>
+<span><%= link "Back", to: project_path(@conn, :index) %></span>
