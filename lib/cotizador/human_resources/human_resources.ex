@@ -7,6 +7,64 @@ defmodule Cotizador.HumanResources do
   alias Cotizador.Repo
 
   alias Cotizador.HumanResources.Position
+  alias Cotizador.HumanResources.Headcount
+
+  def get_position_avg do
+    pos_id_query =
+      from p in Headcount,
+      order_by: p.position_id,
+      group_by: p.position_id,
+      select: p.position_id
+
+    ids =
+      Repo.all(pos_id_query)
+
+    for id <- ids do
+      %{
+        id: id,
+        avg: Enum.sum(
+          Repo.all(
+            from p in Headcount,
+            where: p.position_id == ^id,
+            select: p.salary
+          )
+        )
+        /
+        Enum.count(
+          Repo.all(
+            from p in Headcount,
+            where: p.position_id == ^id,
+            select: p.salary
+          )
+        ),
+        name: Repo.one(
+          from p in Position,
+          where: p.id == ^id,
+          group_by: p.name,
+          select: p.name
+        )
+      }
+    end
+
+  end
+
+  def get_position_avg(id) do
+      Enum.sum(
+        Repo.all(
+          from p in Headcount,
+          where: p.position_id == ^id,
+          select: p.salary
+        )
+      )
+      /
+      Enum.count(
+        Repo.all(
+          from p in Headcount,
+          where: p.position_id == ^id,
+          select: p.salary
+        )
+      )
+  end
 
   @doc """
   Returns the list of positions.
@@ -102,7 +160,6 @@ defmodule Cotizador.HumanResources do
     Position.changeset(position, %{})
   end
 
-  alias Cotizador.HumanResources.Headcount
 
   @doc """
   Returns the list of persons.

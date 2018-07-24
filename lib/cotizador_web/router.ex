@@ -25,6 +25,10 @@ defmodule CotizadorWeb.Router do
     resources "/franchise_fees", FranchiseFeeController
     resources "/projects", ProjectController
 
+    get "/calc",CalculatorController, :index
+    get "/calc/new",CalculatorController, :new
+    post "/calc/create",CalculatorController, :create
+
     get "/", PageController, :index
   end
 

@@ -4,7 +4,7 @@ defmodule Cotizador.Repo.Migrations.CreateItems do
   def change do
     create table(:items) do
       add :name, :string
-      add :cost, :string
+      add :cost, :float
       add :initial_date, :date
       add :final_date, :date
       add :location_id, references(:locations, on_delete: :nothing)

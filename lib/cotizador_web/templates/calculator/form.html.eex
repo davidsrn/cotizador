@@ -1,14 +1,34 @@
-<%= form_for @changeset, @action, fn f -> %>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
-    </div>
-  <% end %>
-
+<%= form_for @conn, calculator_path(@conn, :create), [as: :data], fn f -> %>
   <div class="form-group">
     <%= label f, :name, class: "control-label" %>
     <%= text_input f, :name, class: "form-control" %>
     <%= error_tag f, :name %>
   </div>
 
+  <div class="form-group">
+    <%= label f, :margin, class: "control-label" %>
+    <%= range_input f, :margin, [class: "form-control", min: 1, max: 100, value: 50] %>
+    <%= error_tag f, :margin %>
+  </div>
+
+
+    <div class="form-group">
+      <%= label f, :extras, class: "control-label" %>
+      <%= array_input f, :extras %>
+      <%= array_add_button f, :extras %>
+      <%= error_tag f, :extras %>
+    </div>
+
+  <div class="form-group">
+    <%= multiple_select(f, :positions, Enum.map(@positions, &{&1.name, &1.avg})) %>
+    <%= # position_add_button f, :positions %>
+  </div>
+  <div class="form-group">
+    <input type='text' id='idea' />
+    <input type='button' value='add to list' id='add' />
+    <ul id='list'></ul>
+  </div>
+  <div class="form-group">
+    <%= submit "Calculate" %>
+  </div>
 <% end %>

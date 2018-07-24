@@ -1,0 +1,5 @@
+<h2>Calculate</h2>
+
+<%= render "form.html", Map.put(assigns, :action, calculator_path(@conn, :create)) %>
+
+<span><%= link "Back", to: calculator_path(@conn, :index) %></span>

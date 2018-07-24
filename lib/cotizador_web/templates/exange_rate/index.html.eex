@@ -3,7 +3,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Amout</th>
+      <th>Amount</th>
       <th>Date</th>
 
       <th></th>
@@ -12,7 +12,7 @@
   <tbody>
 <%= for exange_rate <- @rates do %>
     <tr>
-      <td><%= exange_rate.amout %></td>
+      <td><%= exange_rate.amount %></td>
       <td><%= exange_rate.date %></td>
 
       <td class="text-right">

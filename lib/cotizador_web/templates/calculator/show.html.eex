@@ -1,0 +1,28 @@
+<h2>Show Equipment</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @equipment.name %>
+  </li>
+
+  <li>
+    <strong>Cost:</strong>
+    <%= @equipment.cost %>
+  </li>
+
+  <li>
+    <strong>Initial date:</strong>
+    <%= @equipment.initial_date %>
+  </li>
+
+  <li>
+    <strong>Final date:</strong>
+    <%= @equipment.final_date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: equipment_path(@conn, :edit, @equipment) %></span>
+<span><%= link "Back", to: equipment_path(@conn, :index) %></span>

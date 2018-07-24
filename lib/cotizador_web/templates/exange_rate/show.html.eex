@@ -4,7 +4,7 @@
 
   <li>
     <strong>Amout:</strong>
-    <%= @exange_rate.amout %>
+    <%= @exange_rate.amount %>
   </li>
 
   <li>

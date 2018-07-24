@@ -1,5 +1,1 @@
 <h2>Calculator</h2>
-
-Total expenses are: <%= # @expenses %>
-
-<%= render "form.html", Map.put(assigns, :action, equipment_path(@conn, :new)) %>

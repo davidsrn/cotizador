@@ -4,7 +4,7 @@ defmodule Cotizador.FixedCosts.Equipment do
 
 
   schema "items" do
-    field :cost, :string
+    field :cost, :float
     field :final_date, :date
     field :initial_date, :date
     field :name, :string
